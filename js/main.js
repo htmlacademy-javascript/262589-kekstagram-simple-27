@@ -16,11 +16,7 @@ getRandomPositiveInteger ();
 // Функция для проверки максимальной длины строки.
 
 function verifyMaxLegthStr(str, maxlength) {
-  if (str.length > maxlength) {
-    return false;
-  } else {
-    return true;
-  }
+  return str.length <= maxlength;
 }
 
-verifyMaxLegthStr ();
+verifyMaxLegthStr ('Maksar', 10);
