@@ -1,34 +1,51 @@
-// Функция, возвращающая случайное целое число из переданного диапазона включительно.
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// Функция взята из интернета и доработана
+// Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_random
 
-function getRandom(min, max) {
-  if (min < 0 || max < 0 || min === max) {
+function getRandomPositiveInteger (a, b) {
+  if (a < 0 || b < 0) {
     return NaN;
   }
-  else {
-    if (max > min) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    {
-      min = Math.floor(min);
-      max = Math.ceil(max);
-      return Math.floor(Math.random() * (min - max + 1)) + max;
-    }
-  }
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
 }
 
-getRandom(0, 10);
+getRandomPositiveInteger ();
 
 // Функция для проверки максимальной длины строки.
 
 function verifyMaxLegthStr(str, maxlength) {
-  if (str.length > maxlength) {
-    return false;
-  } else {
-    return true;
-  }
+  return str.length <= maxlength;
 }
 
-verifyMaxLegthStr('Maksar', 10);
+verifyMaxLegthStr ('Maksar', 10);
+
+//Больше деталей
+
+const OBJECT_PHOTO_COUNT = 25;
+
+const PHOTO_DESCRIPTION = [
+  'description-1',
+  'description-2',
+  'description-3',
+  'description-4',
+  'description-5',
+  'description-6',
+];
+
+function getPhoto (_, index) {
+  return {
+    id: index + 1,
+    url: `photos/${index + 1}.jpg`,
+    description: PHOTO_DESCRIPTION[getRandomPositiveInteger(0, PHOTO_DESCRIPTION.length - 1)],
+    likes: getRandomPositiveInteger (15, 200),
+    comments: getRandomPositiveInteger (0, 200),
+  };
+}
+
+// const getPhotos = Array.from({length: OBJECT_PHOTO_COUNT}, getPhoto);
+
+const getPhotos = Array(OBJECT_PHOTO_COUNT).fill(0).map(getPhoto);
+
+getPhotos();
