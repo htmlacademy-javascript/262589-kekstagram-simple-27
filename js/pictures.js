@@ -17,4 +17,6 @@ pictures.forEach(({url, comments, likes}) => {
   pictureContainerFragment.append(pictureItem);
 });
 
-pictureContainer.append(pictureContainerFragment);
+const getPictureList = () => pictureContainer.append(pictureContainerFragment);
+
+export {getPictureList};

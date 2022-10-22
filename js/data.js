@@ -1,9 +1,6 @@
 // модуль, который создаёт данные
 import {getRandomPositiveInteger} from './util.js';
 
-
-//Больше деталей
-
 const OBJECT_PHOTO_COUNT = 25;
 
 const PHOTO_DESCRIPTION = [
