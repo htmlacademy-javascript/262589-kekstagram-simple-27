@@ -16,10 +16,10 @@ function getRandomPositiveInteger (a, b) {
 
 // Функция для проверки максимальной длины строки.
 
-function verifyMaxLegthStr(str, maxlength) {
+function verifyMaxLengthStr(str, maxlength) {
   return str.length <= maxlength;
 }
 
-verifyMaxLegthStr ('Maksar', 10);
+verifyMaxLengthStr ('Maksar', 10);
 
 export {getRandomPositiveInteger};
