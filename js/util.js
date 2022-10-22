@@ -16,7 +16,7 @@ function getRandomPositiveInteger (a, b) {
 
 // Функция для проверки максимальной длины строки.
 
-function verifyMaxLengthStr(str, maxlength) {
+function verifyMaxLengthStr (str, maxlength) {
   return str.length <= maxlength;
 }
 
