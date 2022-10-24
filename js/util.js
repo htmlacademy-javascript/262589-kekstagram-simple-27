@@ -1,8 +1,9 @@
 // вспомогательныe функции
+
 // Функция взята из интернета и доработана
 // Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_random
 
-function getRandomPositiveInteger (a, b) {
+const getRandomPositiveInteger = (a, b) => {
   if (a < 0 || b < 0) {
     return NaN;
   }
@@ -10,16 +11,12 @@ function getRandomPositiveInteger (a, b) {
   const upper = Math.floor(Math.max(a, b));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
-}
-
-// getRandomPositiveInteger ();
+};
 
 // Функция для проверки максимальной длины строки.
 
-function verifyMaxLegthStr(str, maxlength) {
-  return str.length <= maxlength;
-}
+const verifyMaxLengthStr = (str, maxlength) => str.length <= maxlength;
 
-verifyMaxLegthStr ('Maksar', 10);
+verifyMaxLengthStr ('Maksar', 10);
 
 export {getRandomPositiveInteger};
