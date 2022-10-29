@@ -8,7 +8,6 @@ const modalCloseElement = modalElement.querySelector('#upload-cancel');
 const scaleControl = modalElement.querySelector('[name="scale"]');
 const textComment = modalElement.querySelector('[name="description"]');
 const effect = modalElement.querySelector('#effect-none');
-console.log(textComment.value);
 
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -44,5 +43,4 @@ modalOpenElement.addEventListener('change', () => {
 
 modalCloseElement.addEventListener('click', () => {
   closeModal();
-  console.log(textComment.value);
 });
