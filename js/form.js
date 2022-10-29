@@ -16,6 +16,7 @@ function validateСomment (value) {
 pristine.addValidator(form.querySelector('.text__description'), validateСomment, 'От 20 до 140 символов');
 
 form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
 });
