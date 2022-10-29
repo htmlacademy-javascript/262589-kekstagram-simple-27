@@ -5,6 +5,10 @@ import {isEscapeKey} from './util.js';
 const modalElement = document.querySelector('.img-upload__overlay');
 const modalOpenElement = document.querySelector('#upload-file');
 const modalCloseElement = modalElement.querySelector('#upload-cancel');
+const scaleControl = modalElement.querySelector('[name="scale"]');
+const textComment = modalElement.querySelector('[name="description"]');
+const effect = modalElement.querySelector('#effect-none');
+console.log(textComment.value);
 
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -27,6 +31,11 @@ function closeModal () {
   document.body.classList.remove('modal-open');
 
   document.removeEventListener('keydown', onPopupEscKeydown);
+
+  scaleControl.value = '100%';
+  effect.checked = true;
+  textComment.value = '';
+  modalOpenElement.reset();
 }
 
 modalOpenElement.addEventListener('change', () => {
@@ -35,4 +44,5 @@ modalOpenElement.addEventListener('change', () => {
 
 modalCloseElement.addEventListener('click', () => {
   closeModal();
+  console.log(textComment.value);
 });
