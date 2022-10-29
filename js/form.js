@@ -1,5 +1,8 @@
 // валидация формы
 
+const MINLENGHTCOMMENT = 20;
+const MAXLENGHTCOMMENT = 140;
+
 const form = document.querySelector('#upload-select-image');
 
 const pristine = new Pristine(form, {
@@ -10,10 +13,10 @@ const pristine = new Pristine(form, {
 });
 
 function validateСomment (value) {
-  return value.length >= 20 && value.length <= 140;
+  return value.length >= MINLENGHTCOMMENT && value.length <= MAXLENGHTCOMMENT;
 }
 
-pristine.addValidator(form.querySelector('.text__description'), validateСomment, 'От 20 до 140 символов');
+pristine.addValidator(form.querySelector('.text__description'), validateСomment, `От ${MINLENGHTCOMMENT} до ${MAXLENGHTCOMMENT} символов`);
 
 form.addEventListener('submit', (evt) => {
   if (!pristine.validate()) {
