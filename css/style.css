@@ -710,6 +710,9 @@ main {
   border-radius: 5px;
 }
 
+.imp-upload__text-error {
+  color: #ff0000;
+}
 
 /**
   * Кнопка для отправки изображения
