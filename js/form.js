@@ -2,7 +2,7 @@
 
 const CommentLength = {
   MIN: 20,
-  MAX: 140
+  MAX: 140,
 };
 
 const formElement = document.querySelector('#upload-select-image');
