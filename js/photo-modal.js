@@ -8,6 +8,7 @@ const modalCloseElement = modalElement.querySelector('#upload-cancel');
 const scaleControlElement = modalElement.querySelector('[name="scale"]');
 const textCommentElement = modalElement.querySelector('[name="description"]');
 const effectElement = modalElement.querySelector('#effect-none');
+const formElement = document.querySelector('#upload-select-image');
 
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -32,9 +33,9 @@ function closeModal () {
   document.removeEventListener('keydown', onPopupEscKeydown);
 
   scaleControlElement.value = '100%';
+  formElement.reset();
   effectElement.checked = true;
   textCommentElement.value = '';
-  modalOpenElement.reset();
 }
 
 modalOpenElement.addEventListener('change', () => {
