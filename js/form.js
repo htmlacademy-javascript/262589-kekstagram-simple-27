@@ -5,9 +5,9 @@ const CommentLength = {
   MAX: 140
 };
 
-const form = document.querySelector('#upload-select-image');
+const formElement = document.querySelector('#upload-select-image');
 
-const pristine = new Pristine(form, {
+const pristine = new Pristine(formElement, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
   errorTextTag: 'div',
@@ -17,9 +17,9 @@ const pristine = new Pristine(form, {
 const validateСomment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
 
 
-pristine.addValidator(form.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
+pristine.addValidator(formElement.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
 
-form.addEventListener('submit', (evt) => {
+formElement.addEventListener('submit', (evt) => {
   if (!pristine.validate()) {
     evt.preventDefault();
   }
