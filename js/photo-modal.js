@@ -1,6 +1,7 @@
 // открытие и закрытие модалки
 
 import {isEscapeKey} from './util.js';
+import {resetEffect} from './filter.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');
 const modalOpenElement = document.querySelector('#upload-file');
@@ -23,6 +24,8 @@ function openModal () {
   document.body.classList.add('modal-open');
 
   document.addEventListener('keydown', onPopupEscKeydown);
+
+  resetEffect();
 }
 
 // использовала  function declaration, чтобы можно бало использовать ее до объявления

@@ -1,3 +1,5 @@
+// редактирование масштаба изображения
+
 const scaleSmallerElement = document.querySelector('.scale__control--smaller');
 const scaleBiggerElement = document.querySelector('.scale__control--bigger');
 const scaleValueElement = document.querySelector('.scale__control--value');
