@@ -14,9 +14,8 @@ const pristine = new Pristine(form, {
   errorTextClass: 'imp-upload__text-error',
 });
 
-function validateСomment (value) {
-  return value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
-}
+const validateСomment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
+
 
 pristine.addValidator(form.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
 
