@@ -1,24 +1,25 @@
 // валидация формы
 
-const MINLENGHTCOMMENT = 20;
-const MAXLENGHTCOMMENT = 140;
+const CommentLength = {
+  MIN: 20,
+  MAX: 140,
+};
 
-const form = document.querySelector('#upload-select-image');
+const formElement = document.querySelector('#upload-select-image');
 
-const pristine = new Pristine(form, {
+const pristine = new Pristine(formElement, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
   errorTextTag: 'div',
   errorTextClass: 'imp-upload__text-error',
 });
 
-function validateСomment (value) {
-  return value.length >= MINLENGHTCOMMENT && value.length <= MAXLENGHTCOMMENT;
-}
+const validateСomment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
 
-pristine.addValidator(form.querySelector('.text__description'), validateСomment, `От ${MINLENGHTCOMMENT} до ${MAXLENGHTCOMMENT} символов`);
 
-form.addEventListener('submit', (evt) => {
+pristine.addValidator(formElement.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
+
+formElement.addEventListener('submit', (evt) => {
   if (!pristine.validate()) {
     evt.preventDefault();
   }

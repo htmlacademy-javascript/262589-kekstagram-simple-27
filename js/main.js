@@ -5,6 +5,8 @@ import './data.js';
 import './pictures.js';
 import './photo-modal.js';
 import './form.js';
+import './scale.js';
+import './filter.js';
 
 import {getPictureList} from './pictures.js';
 
