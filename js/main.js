@@ -7,6 +7,8 @@ import './form.js';
 import './scale.js';
 import './filter.js';
 
+import {closeModal} from './photo-modal.js';
+import {setUserFormSubmit} from './form.js';
 import {getPictureList} from './pictures.js';
 
 fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
@@ -14,3 +16,5 @@ fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
   .then((pictureList) => {
     getPictureList(pictureList);
   });
+
+setUserFormSubmit(closeModal);

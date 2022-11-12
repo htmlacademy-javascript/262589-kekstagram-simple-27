@@ -19,8 +19,24 @@ const validateСomment = (value) => value.length >= CommentLength.MIN && value.l
 
 pristine.addValidator(formElement.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
 
-formElement.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
+const setUserFormSubmit = (onSuccess) => {
+  formElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
-  }
-});
+
+    const isValid = pristine.validate();
+    if (isValid) {
+      const formData = new FormData(evt.target);
+
+      fetch(
+        'https://27.javascript.pages.academy/kekstagram-simple',
+        {
+          method: 'POST',
+          body: formData,
+        },
+      )
+        .then(() => onSuccess());
+    }
+  });
+};
+
+export {setUserFormSubmit};

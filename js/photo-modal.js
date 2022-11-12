@@ -48,3 +48,5 @@ modalOpenElement.addEventListener('change', () => {
 modalCloseElement.addEventListener('click', () => {
   closeModal();
 });
+
+export {openModal, closeModal};
