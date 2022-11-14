@@ -66,6 +66,7 @@ const EFFECTS = {
 const resetEffect = () => {
   sliderContenerElement.classList.add('hidden');
   previewElement.style.filter = '';
+  previewElement.classList = '';
 };
 
 const slider = noUiSlider.create(sliderElement, {

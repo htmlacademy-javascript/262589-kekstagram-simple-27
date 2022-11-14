@@ -44,6 +44,7 @@ function closeModal () {
   formElement.reset();
   effectElement.checked = true;
   textCommentElement.value = '';
+  resetEffect();
 }
 
 modalOpenElement.addEventListener('change', () => {

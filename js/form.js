@@ -1,6 +1,7 @@
 // валидация формы
 
 import {showSuccess, showError} from './messages.js';
+import {sendData} from './api.js';
 
 const CommentLength = {
   MIN: 20,
@@ -27,26 +28,12 @@ const setUserFormSubmit = (onSuccess) => {
 
     const isValid = pristine.validate();
     if (isValid) {
-      const formData = new FormData(evt.target);
-
-      fetch(
-        'https://27.javascript.pages.academy/kekstagram-simple',
-        {
-          method: 'POST',
-          body: formData,
-        },
-      )
-        .then((response) => {
-          if (response.ok) {
-            onSuccess();
-            showSuccess();
-          } else {
-            showError();
-          }
-        })
-        .catch(() => {
-          showError();
-        });
+      sendData(
+        onSuccess,
+        showSuccess,
+        showError,
+        new FormData(evt.target),
+      );
     }
   });
 };

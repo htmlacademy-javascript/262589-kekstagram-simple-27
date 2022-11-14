@@ -12,20 +12,8 @@ import {showAlertError} from './messages.js';
 import {closeModal} from './photo-modal.js';
 import {setUserFormSubmit} from './form.js';
 import {getPictureList} from './pictures.js';
+import {getData} from './api.js';
 
-fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      showAlertError('Не удалось загрузить фотографии других пользователей.');
-    }
-  })
-  .then((pictureList) => {
-    getPictureList(pictureList);
-  })
-  .catch(() => {
-    showAlertError('Не удалось загрузить фотографии других пользователей.');
-  });
+getData(getPictureList, showAlertError);
 
 setUserFormSubmit(closeModal);
