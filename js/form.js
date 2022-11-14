@@ -1,5 +1,7 @@
 // валидация формы
 
+import {showSuccess, showError} from './messages.js';
+
 const CommentLength = {
   MIN: 20,
   MAX: 140,
@@ -34,7 +36,17 @@ const setUserFormSubmit = (onSuccess) => {
           body: formData,
         },
       )
-        .then(() => onSuccess());
+        .then((response) => {
+          if (response.ok) {
+            onSuccess();
+            showSuccess();
+          } else {
+            showError();
+          }
+        })
+        .catch(() => {
+          showError();
+        });
     }
   });
 };

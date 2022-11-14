@@ -2,6 +2,7 @@
 
 import {isEscapeKey} from './util.js';
 import {resetEffect} from './filter.js';
+import {closeMessage, isErrorVisible} from './messages.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');
 const modalOpenElement = document.querySelector('#upload-file');
@@ -14,7 +15,11 @@ const formElement = document.querySelector('#upload-select-image');
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeModal();
+    if(isErrorVisible()) {
+      closeMessage();
+    }else{
+      closeModal();
+    }
   }
 };
 
