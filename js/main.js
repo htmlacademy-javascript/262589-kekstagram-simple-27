@@ -7,7 +7,7 @@ import './form.js';
 import './scale.js';
 import './filter.js';
 
-import {showAlertErrorPictureList} from './util.js';
+import {showAlertErrorPictureList} from './messages.js';
 import {closeModal} from './photo-modal.js';
 import {setUserFormSubmit} from './form.js';
 import {getPictureList} from './pictures.js';
