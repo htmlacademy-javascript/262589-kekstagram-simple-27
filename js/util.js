@@ -10,8 +10,6 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const verifyMaxLengthStr = (str, maxlength) => str.length <= maxlength;
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getRandomPositiveInteger, isEscapeKey, verifyMaxLengthStr};
+export {getRandomPositiveInteger, isEscapeKey};
