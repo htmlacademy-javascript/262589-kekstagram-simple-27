@@ -3,12 +3,13 @@
 import {showSuccess, showError} from './messages.js';
 import {sendData} from './api.js';
 
+const formElement = document.querySelector('#upload-select-image');
+const submitButtonElement = document.querySelector('#upload-submit');
+
 const CommentLength = {
   MIN: 20,
   MAX: 140,
 };
-
-const formElement = document.querySelector('#upload-select-image');
 
 const pristine = new Pristine(formElement, {
   classTo: 'img-upload__text',
@@ -19,8 +20,18 @@ const pristine = new Pristine(formElement, {
 
 const validateСomment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
 
-
 pristine.addValidator(formElement.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
+
+const blockSubmitButton = () => {
+  submitButtonElement.disabled = true;
+  submitButtonElement.textContent = 'Сохраняю...';
+};
+
+const unblockSubmitButton = () => {
+  submitButtonElement.disabled = false;
+  submitButtonElement.textContent = 'Сохранить';
+};
+
 
 const setUserFormSubmit = (onSuccess) => {
   formElement.addEventListener('submit', (evt) => {
@@ -28,14 +39,22 @@ const setUserFormSubmit = (onSuccess) => {
 
     const isValid = pristine.validate();
     if (isValid) {
+      blockSubmitButton();
       sendData(
-        onSuccess,
-        showSuccess,
-        showError,
+        () => {
+          onSuccess();
+          showSuccess();
+          unblockSubmitButton();
+        },
+        () => {
+          showError();
+          unblockSubmitButton();
+        },
         new FormData(evt.target),
       );
     }
   });
 };
+
 
 export {setUserFormSubmit};
