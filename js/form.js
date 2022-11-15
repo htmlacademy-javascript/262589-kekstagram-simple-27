@@ -29,7 +29,7 @@ const blockSubmitButton = () => {
 
 const unblockSubmitButton = () => {
   submitButtonElement.disabled = false;
-  submitButtonElement.textContent = 'Сохранить';
+  submitButtonElement.textContent = 'Опубликовать';
 };
 
 
