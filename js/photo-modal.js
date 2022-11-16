@@ -8,7 +8,6 @@ import {closeMessage, isErrorVisible} from './messages.js';
 const modalElement = document.querySelector('.img-upload__overlay');
 const modalOpenElement = document.querySelector('#upload-file');
 const modalCloseElement = modalElement.querySelector('#upload-cancel');
-const scaleControlElement = modalElement.querySelector('[name="scale"]');
 const textCommentElement = modalElement.querySelector('[name="description"]');
 const effectElement = modalElement.querySelector('#effect-none');
 const formElement = document.querySelector('#upload-select-image');
