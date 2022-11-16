@@ -2,6 +2,7 @@
 
 import {isEscapeKey} from './util.js';
 import {resetEffect} from './filter.js';
+import {resetScale} from './scale.js';
 import {closeMessage, isErrorVisible} from './messages.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');
@@ -40,11 +41,11 @@ function closeModal () {
 
   document.removeEventListener('keydown', onPopupEscKeydown);
 
-  scaleControlElement.value = '100%';
   formElement.reset();
   effectElement.checked = true;
   textCommentElement.value = '';
   resetEffect();
+  resetScale();
 }
 
 modalOpenElement.addEventListener('change', () => {

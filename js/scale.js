@@ -11,6 +11,11 @@ const StepParameters = {
   VALUE_MAX: 100,
 };
 
+const resetScale = () => {
+  scaleValueElement.value = '100%';
+  previewElement.style.transform = 'scale(1)';
+};
+
 scaleSmallerElement.addEventListener('click', () => {
   const currentValue = parseFloat(scaleValueElement.value);
   if(currentValue > StepParameters.VALUE_MIN || currentValue > StepParameters.VALUE_MAX) {
@@ -28,3 +33,5 @@ scaleBiggerElement.addEventListener('click', () => {
     previewElement.style.transform = (`scale(${newInputValue / 100})`);
   }
 });
+
+export {resetScale};

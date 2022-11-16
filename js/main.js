@@ -1,8 +1,5 @@
 // точка входа. Модуль, который связывает другие модули
 
-import './scale.js';
-import './filter.js';
-
 import {showAlertError} from './messages.js';
 import {closeModal} from './photo-modal.js';
 import {setUserFormSubmit} from './form.js';
