@@ -20,7 +20,7 @@ scaleSmallerElement.addEventListener('click', () => {
   if(currentValue > StepParameters.VALUE_MIN || currentValue > StepParameters.VALUE_MAX) {
     const newInputValue = currentValue - StepParameters.STEP;
     scaleValueElement.value = `${newInputValue}%`;
-    previewElement.style.transform = (`scale(${newInputValue / 100})`);
+    previewElement.style.transform = (`scale(${newInputValue / StepParameters.VALUE_MAX})`);
   }
 });
 
@@ -29,7 +29,7 @@ scaleBiggerElement.addEventListener('click', () => {
   if(currentValue < StepParameters.VALUE_MIN || currentValue < StepParameters.VALUE_MAX) {
     const newInputValue = currentValue + StepParameters.STEP;
     scaleValueElement.value = `${newInputValue}%`;
-    previewElement.style.transform = (`scale(${newInputValue / 100})`);
+    previewElement.style.transform = (`scale(${newInputValue / StepParameters.VALUE_MAX})`);
   }
 });
 
