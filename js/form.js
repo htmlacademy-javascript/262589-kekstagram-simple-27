@@ -18,9 +18,9 @@ const pristine = new Pristine(formElement, {
   errorTextClass: 'imp-upload__text-error',
 });
 
-const validateСomment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
+const validateComment = (value) => value.length >= CommentLength.MIN && value.length <= CommentLength.MAX;
 
-pristine.addValidator(formElement.querySelector('.text__description'), validateСomment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
+pristine.addValidator(formElement.querySelector('.text__description'), validateComment, `От ${CommentLength.MIN} до ${CommentLength.MAX} символов`);
 
 const blockSubmitButton = () => {
   submitButtonElement.disabled = true;
