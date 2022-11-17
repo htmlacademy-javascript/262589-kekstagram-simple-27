@@ -1,11 +1,5 @@
 //  эффекты для изображения
 
-const previewElement = document.querySelector('.img-upload__preview img');
-const sliderContenerElement = document.querySelector('.img-upload__effect-level');
-const sliderElement = document.querySelector('.effect-level__slider');
-const sliderValueElement = document.querySelector('.effect-level__value');
-const effectsListElement = document.querySelector('.effects__list');
-
 const EFFECTS = {
   none: {
     range: {
@@ -62,6 +56,12 @@ const EFFECTS = {
     postfix: '',
   },
 };
+
+const previewElement = document.querySelector('.img-upload__preview img');
+const sliderContenerElement = document.querySelector('.img-upload__effect-level');
+const sliderElement = document.querySelector('.effect-level__slider');
+const sliderValueElement = document.querySelector('.effect-level__value');
+const effectsListElement = document.querySelector('.effects__list');
 
 const resetEffect = () => {
   sliderContenerElement.classList.add('hidden');
