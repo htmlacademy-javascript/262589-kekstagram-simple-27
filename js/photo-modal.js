@@ -6,11 +6,10 @@ import {resetScale} from './scale.js';
 import {closeMessage, isErrorVisible} from './messages.js';
 
 const modalElement = document.querySelector('.img-upload__overlay');
-const modalOpenElement = document.querySelector('#upload-file');
-const modalCloseElement = modalElement.querySelector('#upload-cancel');
-const textCommentElement = modalElement.querySelector('[name="description"]');
-const effectElement = modalElement.querySelector('#effect-none');
-const formElement = document.querySelector('#upload-select-image');
+const modalOpenElement = document.querySelector('.img-upload__input');
+const modalCloseElement = modalElement.querySelector('.img-upload__cancel');
+const textCommentElement = modalElement.querySelector('.text__description');
+const formElement = document.querySelector('.img-upload__form');
 
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -41,7 +40,6 @@ function closeModal () {
   document.removeEventListener('keydown', onPopupEscKeydown);
 
   formElement.reset();
-  effectElement.checked = true;
   textCommentElement.value = '';
   resetEffect();
   resetScale();

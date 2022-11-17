@@ -3,13 +3,13 @@
 import {showSuccess, showError} from './messages.js';
 import {sendData} from './api.js';
 
-const formElement = document.querySelector('#upload-select-image');
-const submitButtonElement = document.querySelector('#upload-submit');
-
 const CommentLength = {
   MIN: 20,
   MAX: 140,
 };
+
+const formElement = document.querySelector('.img-upload__form');
+const submitButtonElement = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(formElement, {
   classTo: 'img-upload__text',

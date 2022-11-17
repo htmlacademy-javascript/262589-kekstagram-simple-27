@@ -2,10 +2,10 @@
 
 import {isEscapeKey} from './util.js';
 
+const ALERT_SHOW_TIME = 5000;
+
 const messageSuccessTemplateElement = document.querySelector('#success').content.querySelector('.success');
 const messageErrorTemplateElement = document.querySelector('#error').content.querySelector('.error');
-
-const ALERT_SHOW_TIME = 5000;
 
 let errorVisible = false;
 
