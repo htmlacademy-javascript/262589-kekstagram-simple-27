@@ -1,14 +1,18 @@
 // редактирование масштаба изображения
+const StepParameters = {
+  STEP: 25,
+  VALUE_MIN: 25,
+  VALUE_MAX: 100,
+};
 
 const scaleSmallerElement = document.querySelector('.scale__control--smaller');
 const scaleBiggerElement = document.querySelector('.scale__control--bigger');
 const scaleValueElement = document.querySelector('.scale__control--value');
 const previewElement = document.querySelector('.img-upload__preview img');
 
-const StepParameters = {
-  STEP: 25,
-  VALUE_MIN: 25,
-  VALUE_MAX: 100,
+const resetScale = () => {
+  scaleValueElement.value = '100%';
+  previewElement.style.transform = 'scale(1)';
 };
 
 scaleSmallerElement.addEventListener('click', () => {
@@ -28,3 +32,5 @@ scaleBiggerElement.addEventListener('click', () => {
     previewElement.style.transform = (`scale(${newInputValue / 100})`);
   }
 });
+
+export {resetScale};

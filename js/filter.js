@@ -66,6 +66,7 @@ const EFFECTS = {
 const resetEffect = () => {
   sliderContenerElement.classList.add('hidden');
   previewElement.style.filter = '';
+  previewElement.classList = '';
 };
 
 const slider = noUiSlider.create(sliderElement, {
@@ -92,20 +93,20 @@ slider.on('update', () => {
 });
 
 effectsListElement.addEventListener('change', (evt) => {
-  const value = evt.target.value;
+  const effectName = evt.target.value;
   previewElement.classList = '';
-  const effect = EFFECTS[value];
+  const effect = EFFECTS[effectName];
   slider.updateOptions({
     range: effect.range,
     step: effect.step,
   });
   slider.set(effect.range.max);
 
-  if ( value !== 'none' ) {
-    previewElement.classList.add(`effects__preview--${value}`);
+  if ( effectName !== 'none' ) {
+    previewElement.classList.add(`effects__preview--${effectName}`);
     sliderContenerElement.classList.remove('hidden');
   } else {
-    previewElement.classList.remove(`effects__preview--${value}`);
+    previewElement.classList.remove(`effects__preview--${effectName}`);
     sliderContenerElement.classList.add('hidden');
   }
 });
